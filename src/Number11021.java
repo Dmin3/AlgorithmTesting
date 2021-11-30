@@ -12,7 +12,7 @@ public class Number11021 {
 
         StringTokenizer st;
         StringBuilder sb = new StringBuilder();
-        
+
         for (int i = 1; i <= t; i++) {
             st = new StringTokenizer(br.readLine(), " ");
             sb.append("Case" +" "+ "#"+ i + ":" + " ")
