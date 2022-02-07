@@ -1,8 +1,9 @@
-package javaCodingTest;
+package javaCodingTest.string;
 
 import java.util.HashSet;
 import java.util.Set;
 
+// 고유한 이메일
 public class UniqueEmailAddress {
     public static void main(String[] args) {
 
@@ -14,11 +15,28 @@ public class UniqueEmailAddress {
                 "testemail+tom@cod.ing.com"
         };
 
-        System.out.println(a.solve_1(emails));
+//        System.out.println(a.solve_1(emails));
+        System.out.println(a.solve_spilt(emails));
 
 
 
     }
+
+    //split
+    private int solve_spilt(String[] emails) {
+
+        // 중복 제거
+        Set<String> set = new HashSet<>();
+
+        for (String email : emails) {
+            String[] part = email.split("@");
+            String[] localName = part[0].split("\\+");
+            set.add(localName[0].replace(".", "") + "@"+ part[1]);
+        }
+
+        return set.size();
+    }
+
 
     private int solve_1(String[] emails) {
 
@@ -55,5 +73,8 @@ public class UniqueEmailAddress {
 
         return sb.toString();
     }
+
+
+
 
 }
